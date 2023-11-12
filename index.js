@@ -9,7 +9,13 @@ dotenv.config();
 //Database Connection
 database();
 const app = express();
-app.use(cors());
+app.use(cors(
+  {
+    origin: ['https://auth-client-pied.vercel.app'],
+    methods: ['POST','GET'],
+    credentials:true
+  }
+));
 app.use(express.json());
 
 app.get('/',(req,res)=>{
